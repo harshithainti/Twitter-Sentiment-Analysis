@@ -1,0 +1,284 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">CineBuzz...</a>
+				<nav>
+					<a href="{% url 'search' %}">{{request.user}}</a>
+					<a href="{% url 'login' %}">logout</a>
+					<a href="#menu">Menu</a>
+
+					<!-- <div class="search-container">
+	    		<form action="/action_page.php">
+						<input type="text" placeholder="Search.." name="search">
+						<!-- <button type="submit">Submit</button> -->
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{%url 'tweets' %}">Tweets</a></li>
+					<li><a href="{%url 'oa' %}">Overall Analysis</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h1>Filmatory</h1>
+					<p>Making a movie is like building a watch because a watch is so small and you only can fit so many things inside it that all the pieces
+						really do need to work together...Every viewer is going to get a different thing That's the thing about painting, photography, <u>CINEMA </u></p>
+				</div>
+				<video autoplay loop muted playsinline ><source src="{% static "images/avengers.mp4" %}" type="video/mp4"></video>
+			</section>
+
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					<header class="special">
+
+						<h2>Twitter stats and Statistics</h2>
+						<p>There is no shortage of interesting Twitter stats out there. We've collated and categorized the most up-to-date, most interesting facts we could find..</p>
+
+						<br>
+						<h3><center><i>Please enter the movie name </center></i></h3>
+						<h3>{{searchitem}}</h3>
+						<form action="{% url 'home'%}" method="post">
+						  {% csrf_token %}
+						  {{searchform}}
+					  <br>
+						<input type="submit" value="Submit">
+						</form>
+
+
+						<p>{% block search %}{{search}}{% endblock search %}</p>
+						<br>
+					</header>
+					<div class="highlights">
+						<section>
+							<div class="content">
+								<header>
+									<a href="{%url 'tweets' %}" class="#"><span class="label"><img src="{% static 'images/good.jpg' %}"></span></a>
+									<h3>Positive TWEETS</h3>
+								</header>
+								<p>When writing a review/tweeting right response can make a 5-star review even more powerful and minimize the damage of a negative review.</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<a href="{%url 'tweets' %}" class="#"><span class="label"><img src="{% static 'images/average.jpg' %}"</span></a>
+									<h3>Neutral Tweets</h3>
+								</header>
+								<p>There's a famous saying: "There are a thousand hamlets in a thousand people's eyes". Average reviews follows the same concept</p>
+							</div>
+						</section>
+						<section>
+							<div class="content" align="center">
+								<header>
+									<a href="{%url 'tweets' %}" class=""><span class="label"><img src="{% static 'images/bad.jpg' %}"</span></a>
+									<h3>Negative Tweets</h3>
+								</header>
+								<p>Bad movies have bad stories, because it fails at the basic level to capture our attention and break our suspension of disbelief. .</p>
+							</div>
+						</section>
+						<!-- <section margin-left="auto" margin-right="auto">
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-line-chart"><span class="label">Icon</span></a> -->
+									<!--<h3>Interdum gravida</h3>
+								</header>
+								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+							</div>
+						</section> -->
+						<!--<section>
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-paper-plane-o"><span class="label">Icon</span></a>
+									<h3>Faucibus consequat</h3>
+								</header>
+								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+							</div>
+						</section>
+						<!--<section>
+							<div class="content">
+								<header>
+									<a href="#" class="icon fa-qrcode"><span class="label">Icon</span></a>
+									<h3>Accumsan viverra</h3>
+								</header>
+								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+							</div>
+						</section>-->
+					</div>
+				</div>
+			</section>
+
+		<!-- CTA -->
+			<section id="cta" class="wrapper" >
+				<div class="inner" >
+					<h2>Film and TV Industries</h2>
+					<p>Entertainment and social media are intersecting at a frenetic pace. One of the services driving the socialization of entertainment is Twitter. When we
+						talk about the conversational aspect social TV, what we usually mean is the backchannel conversation related to a TV show or movie that happens on Twitter.
+						The real-time nature of Twitter is a perfect fit for the film and television industries, as it allows fans, stars and producers to engage and converse
+						together.</p>
+
+				</div>
+			</section>
+	<!-- Testimonials -->
+		<section class="wrapper">
+			<div class="inner">
+				<header class="special">
+					<h2>Sample Audience Tweets About Movies</h2>
+					<p>Movie lovers flock to Twitter to geek out over the latest trailers, see what their favorite stars are up to, and interact with fellow fans
+						in an everlasting, always passionate conversation..</p>
+				</header>
+				<div class="testimonials">
+					<section>
+						<div class="content">
+							<blockquote>
+								<p> <u>#Maleficient</u> Mistress of Evil was magical & emotional! Angelina Jolie’s performance was the perfect combination of comical, heartbreaking, & fierce.
+									The Moors Enchanted Forest & its creatures were extraordinary. Would love to see a Moors-themed Disney World attraction someday!</p>
+							</blockquote>
+							<div class="author">
+								<div class="image">
+									<img src="{% static 'images/pic01.jpg' %}" alt="" />
+								</div>
+								<p class="credit">- <strong>Jane Blatz</strong> <span>@Jane_Blatz</span></p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="content">
+							<blockquote>
+								<p>Watched <u>#Intersteller</u> Nothing wrong with expecting the best from the best.
+									I felt let down by this movie in every way but it wasnt terrible.
+									Just didn’t live up to the hype.</p>
+							</blockquote>
+							<div class="author">
+								<div class="image">
+									<img src="{% static 'images/pic03.jpg' %}" alt="" />
+								</div>
+								<p class="credit">- <strong>Joel</strong> <span>@Joel</span></p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="content">
+							<blockquote>
+								<p>Watching <u>#Hellboy</u> is my new personal idea of hell..If it was my call, I'd write nothing about the movie and leave this space
+									 blank for readers' notes.</p>
+							</blockquote>
+							<div class="author">
+								<div class="image">
+									<img src="{% static 'images/pic02.jpg' %}" alt="" />
+								</div>
+								<p class="credit">- <strong>Jennifer</strong> @Jennifer <span></span></p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</section>
+
+	<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<div class="content">
+					<section>
+						<h3>University of Windsor</h3>
+						<p>401 Sunset Ave, Windsor, ON N9B 3P4
+						</br>Phone: (519) 253-3000 </br>Location	Windsor, Ontario, Canada 42°18′24″N 83°3′57″W </br>Website:	uwindsor.ca</p>
+					</section>
+					<section>
+						<h4>We are the team members</h4>
+						<ul class="alt">
+							<li><a href="#">Harshitha</a></li>
+							<li><a href="#">Prakash</a></li>
+							<li><a href="#">Sai Sireesha</a></li>
+							<li><a href="#"></a></li>
+						</ul>
+					</section>
+					<section>
+						<h4>Join us on</h4>
+						<ul class="plain">
+							<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+							<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+							<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+							<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+						</ul>
+					</section>
+				</div>
+					<div class="copyright"><p>Get Started</p>
+				</div>
+			</div>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/browser.min.js' %}"></script>
+		<script src="{% static 'js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'js/util.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

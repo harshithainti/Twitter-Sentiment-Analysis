@@ -1,0 +1,268 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">CineBuzz...</a>
+				<nav>
+					<a href"#">{{request.user}}</a>
+					<a href="{% url 'login' %}">logout</a>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{%url 'tweets' %}">Tweets</a></li>
+					<li><a href="{% url 'oa' %}">Overall Analysis</a></li>
+				</ul>
+			</nav>
+
+			<!-- Banner -->
+				<section id="banner">
+					<div class="inner">
+						<h1>Tweets</h1>
+						<p>Reviewing films can seem
+							fun, but it actually takes discipline to explain all the elements of a film and to express your opinion succinctly.
+							Check out our FILM REVIEW samples.</p>
+					</div>
+					<video autoplay loop muted playsinline src="{% static 'images/inception.mp4' %}"></video>
+				</section>
+
+		<!-- Heading -->
+		<!--	<div id="heading" >
+				<h1>Tweets</h1>
+			</div> -->
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				 <div class="inner">
+					<!-- div class="content" -->
+
+					<!-- Elements -->
+
+
+
+									<h1>Positive Tweets</h1>
+									<br>
+									<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">CLick to see Positive Tweets</button>
+									<div id="demo" class="collapse">
+									<br>
+									<ul>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt1 %}{{pt1}}{% endblock pt1 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt2 %}{{pt2}}{% endblock pt2 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt3 %}{{pt3}}{% endblock pt3 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt4 %}{{pt4}}{% endblock pt4 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt5 %}{{pt5}}{% endblock pt5 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt6 %}{{pt6}}{% endblock pt6 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt7 %}{{pt7}}{% endblock pt7 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt8 %}{{pt8}}{% endblock pt8 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt9 %}{{pt9}}{% endblock pt9 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt10 %}{{pt10}}{% endblock pt10 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt11 %}{{pt11}}{% endblock pt11 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt12 %}{{pt12}}{% endblock pt12 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt13 %}{{pt13}}{% endblock pt13 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt14 %}{{pt14}}{% endblock pt14 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt15 %}{{pt15}}{% endblock pt15 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt16 %}{{pt16}}{% endblock pt16 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt17 %}{{pt17}}{% endblock pt17 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt18 %}{{pt18}}{% endblock pt18 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt19 %}{{pt19}}{% endblock pt19 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block pt20 %}{{pt20}}{% endblock pt20 %}</li>
+										<br>
+
+									</ul>
+								</div>
+
+					<!-- Elements -->
+
+
+									<h1>Negative Tweets</h1>
+									<br>
+									<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">CLick to see Negative Tweets</button>
+									<div id="demo1" class="collapse">
+									<br>
+									<ul>
+
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt1 %}{{ngt1}}{% endblock ngt1 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt2 %}{{ngt2}}{% endblock ngt2 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt3 %}{{ngt3}}{% endblock ngt3 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt4 %}{{ngt4}}{% endblock ngt4 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt5 %}{{ngt5}}{% endblock ngt5 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt6 %}{{ngt6}}{% endblock ngt6 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt7 %}{{ngt7}}{% endblock ngt7 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt8 %}{{ngt8}}{% endblock ngt8 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt9 %}{{ngt9}}{% endblock ngt9 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt10 %}{{ngt10}}{% endblock ngt10 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt11 %}{{ngt11}}{% endblock ngt11 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt12 %}{{ngt12}}{% endblock ngt12 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt13 %}{{ngt13}}{% endblock ngt13 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt14 %}{{ngt14}}{% endblock ngt14 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt15 %}{{ngt15}}{% endblock ngt15 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt16 %}{{ngt16}}{% endblock ngt16 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt17 %}{{ngt17}}{% endblock ngt17 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt18 %}{{ngt18}}{% endblock ngt18 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt19 %}{{ngt19}}{% endblock ngt19 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block ngt20 %}{{ngt20}}{% endblock ngt20 %}</li>
+										<br>
+
+									</ul>
+								</div>
+
+
+					<!-- Elements -->
+
+									<h1>Neutral Tweets</h1>
+									<br>
+									<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">CLick to see Neutral Tweets </button>
+									<div id="demo2" class="collapse">
+									<br>
+									<ul>
+
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt2 %}{{nt2}}{% endblock nt2 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt3 %}{{nt3}}{% endblock nt3 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt4 %}{{nt4}}{% endblock nt4 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt5 %}{{nt5}}{% endblock nt5 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt6 %}{{nt6}}{% endblock nt6 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt7 %}{{nt7}}{% endblock nt7 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt8 %}{{nt8}}{% endblock nt8 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt9 %}{{nt9}}{% endblock nt9 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt10 %}{{nt10}}{% endblock nt10 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt11 %}{{nt11}}{% endblock nt11 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt12 %}{{nt12}}{% endblock nt12 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt13 %}{{nt13}}{% endblock nt13 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt14 %}{{nt14}}{% endblock nt14 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt15 %}{{nt15}}{% endblock nt15 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt16 %}{{nt16}}{% endblock nt16 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt17 %}{{nt17}}{% endblock nt17 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt18 %}{{nt18}}{% endblock nt18 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt19 %}{{nt19}}{% endblock nt19 %}</li>
+										<br>
+										<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt20 %}{{nt20}}{% endblock nt20 %}</li>
+										<br>
+									<li><img src="{% static 'images/twitterlogo.png' %}" width=20px height=20px>{% block nt1 %}{{nt1}}{% endblock nt1 %}</li>
+									<br>
+
+								</ul>
+							</div>
+
+
+					<!-- /div -->
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>University of Windsor</h3>
+							<p>401 Sunset Ave, Windsor, ON N9B 3P4
+							</br>Phone: (519) 253-3000 </br>Location	Windsor, Ontario, Canada 42°18′24″N 83°3′57″W </br>Website:	uwindsor.ca</p>
+						</section>
+						<section>
+							<h4>We are the team members</h4>
+							<ul class="alt">
+								<li><a href="#">Harshitha</a></li>
+								<li><a href="#"></a>Prakash</li>
+								<li><a href="#">Sai Sireesha</a></li>
+								<li><a href="#"></a></li>
+							</ul>
+						</section>
+						<section>
+							<h4>Join us on</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright"><p>Thank You</p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

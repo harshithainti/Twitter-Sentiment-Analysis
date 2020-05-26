@@ -1,0 +1,167 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">CineBuzz...</a>
+				<nav>
+					<a href"#">{{request.user}}</a>
+					<a href="{% url 'login' %}">logout</a>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{%url 'tweets' %}">Tweets</a></li>
+					<li><a href="{% url 'oa' %}">Overall Analysis</a></li>
+				</ul>
+			</nav>
+
+			<!-- Banner -->
+				<section id="banner">
+					<div class="inner">
+						<h1>Overall Analysis</h1>
+						<p> It is important to analyze all elements which are brought together in a film in order to assess the effectiveness of the film
+							in achieving the objectives of the producers. This is also important since it helps explain why some films are more successful than others.</p>
+					</div>
+					<video autoplay loop muted playsinline src="{% static 'images/Maleficient.mp4' %}"></video>
+				</section>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<h1> <center>Geographical differentiated response</center></h1>
+				<section id="main" class="wrapper">
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+       google.charts.load('current', {
+         'packages':['geochart'],
+         // Note: you will need to get a mapsApiKey for your project.
+         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+         'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+       });
+       google.charts.setOnLoadCallback(drawRegionsMap);
+
+       function drawRegionsMap() {
+         var data = google.visualization.arrayToDataTable([
+           ['Country', 'tweets'],
+           ['Germany', 200],
+           ['United States', 300],
+           ['Brazil', 400],
+           ['Canada', 500],
+           ['France', 600],
+           ['RU', 700],
+					 ['India',500],
+         ]);
+
+         var options = {};
+
+         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+         chart.draw(data, options);
+       }
+     </script>
+							<div id="regions_div" style="width: 1500px; height: 600px;"></div>
+				</section>
+				<br>
+				<br>
+				<br>
+
+
+
+<h1><center>Overall Sentiment Analysis of the Tweets Extracted </center></h1>
+<h1>{{content}}</h1>
+
+				<section id="main" class="wrapper">
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+							<script type="text/javascript">
+								google.charts.load('current', {'packages':['corechart']});
+								google.charts.setOnLoadCallback(drawChart);
+
+								function drawChart() {
+									var positive = {{positive}};
+									var negative= {{negative}};
+									var neutral = {{neutral}};
+
+
+					        var data = google.visualization.arrayToDataTable([
+					          ['Review', 'No of Tweets'],
+					          ['Negative Reviews',negative],
+					          ['Neutral Reviews', neutral],
+					          ['Positive Reviews',positive],
+					        ]);
+
+
+									var options = {
+										title: 'Twitter Analysis'
+									};
+
+									var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+									chart.draw(data, options);
+								}
+							</script>
+
+							<div id="piechart"  style="width: 1500px; height: 700px;"></div>
+				</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>University of Windsor</h3>
+							<p>401 Sunset Ave, Windsor, ON N9B 3P4
+							</br>Phone: (519) 253-3000 </br>Location	Windsor, Ontario, Canada 42°18′24″N 83°3′57″W </br>Website:	uwindsor.ca</p>
+						</section>
+						<section>
+							<h4>We are the team members</h4>
+							<ul class="alt">
+								<li><a href="#">Harshitha</a></li>
+								<li><a href="#">Prakash</a></li>
+								<li><a href="#">Sai Sireesha</a></li>
+								<li><a href="#"></a></li>
+							</ul>
+						</section>
+						<section>
+							<h4>Join us on</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright"><p>Thank You</p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>

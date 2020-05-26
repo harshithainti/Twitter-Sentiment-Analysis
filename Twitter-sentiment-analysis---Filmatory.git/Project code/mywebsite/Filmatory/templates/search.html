@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>User Profile</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="{% url 'home' %}">CineBuzz...</a>
+				<nav>
+					<a href"#">{{request.user}}</a>
+					<a href="{% url 'login' %}">logout</a>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="{%url 'tweets' %}">Tweets</a></li>
+					<li><a href="{% url 'oa' %}">Overall Analysis</a></li>
+				</ul>
+			</nav>
+
+			<!-- Banner -->
+				<section id="banner">
+					<div class="inner">
+						<h1>Profile</h1>
+						<p>Filmatory profile lets you search about a movie, its related tweets and overall review of the move</p>
+					</div>
+					<video autoplay loop muted playsinline src="{% static 'images/inception.mp4' %}"></video>
+				</section>
+
+		<!-- Heading -->
+		<!--	<div id="heading" >
+				<h1>Tweets</h1>
+			</div> -->
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				 <div class="inner">
+					<!-- div class="content" -->
+
+					<!-- Elements -->
+
+					<style type="text/css">
+					 ul {
+					  list-style-type: none;
+					 }
+					</style>
+
+					<h3><center> My Profile</center></h3>
+					<p><center> <i> User Name : {{request.user}}</i></center></p>
+					<p><center> <i> First Name :{{request.user.first_name}} </p>
+					<p><center> <i> Last Name : {{request.user.last_name}}</i></center></p>
+
+					<p><center>  <i> Email : {{request.user.email}}</i></center></p>
+					<br>
+					<center><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Movies Searched</button></center>
+					<div id="demo" class="collapse">
+					<br>
+					<ul>
+						{% for text in post %}
+						<li>    Word : {{text.search}}</li>
+						<li> Date Searched :{{text.datefi}}</li>
+						<br>
+						{% endfor %}
+						<br>
+
+					</ul>
+								</ul>
+							</div>
+
+
+					<!-- /div -->
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>University of Windsor</h3>
+							<p>401 Sunset Ave, Windsor, ON N9B 3P4
+							</br>Phone: (519) 253-3000 </br>Location	Windsor, Ontario, Canada 42°18′24″N 83°3′57″W </br>Website:	uwindsor.ca</p>
+						</section>
+						<section>
+							<h4>We are the team members</h4>
+							<ul class="alt">
+								<li><a href="#">Harshitha</a></li>
+								<li><a href="#"></a>Prakash</li>
+								<li><a href="#">Sai Sireesha</a></li>
+								<li><a href="#"></a></li>
+							</ul>
+						</section>
+						<section>
+							<h4>Join us on</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright"><p>Thank You</p>
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>
